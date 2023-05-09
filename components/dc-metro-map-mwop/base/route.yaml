@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: dc-metro-map-mwop
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: dc-metro-map-mwop
+    app.kubernetes.io/part-of: dc-metro-map
+  name: dc-metro-map-mwop
+  namespace: karthik-jk-tenant
+spec:
+  port:
+    targetPort: 8080
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: dc-metro-map-mwop
+    weight: 100
+status: {}
